@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #it1{
+            background-color: aqua;
+        }
+        #it2{
+            background-color: aquamarine;
+        }
+        #it3{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <li id="it1">item1</li>
+    <li id="it2">item2</li>
+    <li id="it3">item3</li>
+    <script>
+        var it1 = document.getElementById("it1");
+        var it2 = document.getElementById("it2");
+        var it3 = document.getElementById("it3");
+        it1.addEventListener("mouseenter", function(){
+            it1.style.backgroundColor = "red";
+        });
+        it1.addEventListener("mouseleave", function(){
+            it1.style.backgroundColor = "";
+        });
+        it2.addEventListener("mouseenter", function(){
+            it2.style.backgroundColor = "green";
+        });
+        it2.addEventListener("mouseleave", function(){
+            it2.style.backgroundColor = "";
+        });
+        it3.addEventListener("mouseenter", function(){
+            it3.style.backgroundColor = "blue";
+        });
+        it3.addEventListener("mouseleave", function(){
+            it3.style.backgroundColor = "";
+        });
+    </script>
+</body>
+</html>

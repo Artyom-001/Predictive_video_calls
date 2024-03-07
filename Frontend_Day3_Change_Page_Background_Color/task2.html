@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    button {
+        margin: 5px;
+        padding: 10px 20px;
+        border: 5px solid black;
+        cursor: pointer;
+    }
+    #prpl {
+        background-color: purple;
+    }
+    #aqua {
+        background-color: aqua;
+    }
+    #brn {
+        background-color: brown;
+    }
+</style>
+</head>
+<body>
+
+<button id="prpl">Purple</button>
+<button id="aqua">Aqua</button>
+<button id="brn">Brown</button>
+
+<script>
+    var colorButtons = document.querySelectorAll("button");
+    var colors = {
+        prpl: "purple",
+        aqua: "aqua",
+        brn: "brown"
+    };
+    colorButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            var color = colors[this.id];
+            document.body.style.backgroundColor = color;
+        });
+    });
+</script>
+
+</body>
+</html>
