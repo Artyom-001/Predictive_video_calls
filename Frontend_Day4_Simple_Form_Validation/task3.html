@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    body {
+        font-family: Arial, sans-serif;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50vh;
+        margin-left: 50%;
+        margin-right: 50%;
+        
+        
+        
+    }
+    #emailInput {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 250px;
+        font-size: 16px;
+    }
+    #submitButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+
+
+        <input type="email" id="emailInput" placeholder="Enter your email address...">
+        <button type="submit" id="submitButton">Submit</button>
+    
+
+<script>
+
+document.getElementById("submitButton").addEventListener("click", function(event) {
+        var emailInput = document.getElementById("emailInput").value;
+        if (emailInput=="" || emailInput==" ") {
+            alert("Please enter an email address");
+            return false; 
+        }else{
+            alert("submittion was successful");
+            return true;
+        }
+    });
+</script>    
+</body>
+</html>
