@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #btn #p {
+        text-align: center;
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+    <button id="btn">Click Me</button>    
+    <p id="p">some text content</p>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function(){ document.getElementById("p").innerHTML="some New text content"});
+    
+    </script>
+</body>
+</html>
