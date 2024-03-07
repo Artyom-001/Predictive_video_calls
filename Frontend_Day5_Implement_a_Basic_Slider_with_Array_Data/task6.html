@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slider {
+        position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    #image {
+        width: 100%;
+        height: auto;
+    }
+    .button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    #prevButton {
+        left: 0;
+    }
+    #nextButton {
+        right: 0;
+    }
+    </style>
+</head>
+<body>
+    
+<div id="slider">
+    <img src="" id="image" alt="Slider Image">
+    <button class="button" id="prevButton">Previous</button>
+    <button class="button" id="nextButton">Next</button>
+</div>
+
+<script>
+
+const images = ["https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTCytSkoYnbo2xN8Cn9kLLl9ki6rXOhbMOcptZB3Xcv-zwsJBoNQOSAp3IDywXBJYhgbtt6oiF7zKNoLKKZJdzJvFX1dc3pQ8MV3yWzqQ", "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTNTP36UZCibol0Rfpa0W9SxDYW3h_ucvRAzvqd3rJZMAnX8wdGtVE98QgKSI_veUW-KLuO-V9hCN5ZVb1aF321q8XblAm0BY2AWGgBwA", ];
+    let currentIndex = 0; 
+    const currentImage = document.getElementById("image");
+
+    function showImage() {
+        currentImage.src = images[currentIndex];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) ;
+        if(currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        showImage();
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 ) ;
+        if(currentIndex < 0) {
+            currentIndex = images.length - 1;
+        }
+        showImage();
+    }
+
+    showImage();
+
+    document.getElementById("nextButton").addEventListener("click", nextImage);
+    document.getElementById("prevButton").addEventListener("click", prevImage);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto-Save Form</title>
+</head>
+<body>
+    <p>enter any text:</p><br>
+    <input type="text" id="inp">
+    
+<script>
+function saveFormData() {
+    var inpData ={ 
+        str: document.getElementById("inp").value
+
+};
+    localStorage.setItem("inpData", JSON.stringify(inpData));
+}
+
+function loadFormData() {
+    var savedData = localStorage.getItem("inpData");
+    if (savedData) {
+        var inpData = JSON.parse(savedData);
+        document.getElementById("inp").value = inpData.str;
+        
+    }
+}
+
+loadFormData();
+
+document.getElementById("inp").addEventListener("input", saveFormData);
+
+</script>
+
+</body>
+</html>

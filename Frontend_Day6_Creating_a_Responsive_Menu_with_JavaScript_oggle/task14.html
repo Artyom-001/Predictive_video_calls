@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+      margin-left: 50%;
+}
+    #menu_icon {
+        display: none;
+        background-color: skyblue;
+        overflow: hidden;
+      justify-content: center;
+   
+        
+    }
+
+    #nav {
+      background-color: skyblue;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    a {
+      display: block;
+      color: whitesmoke;
+      text-align: center;
+      padding: 14px 20px;
+    }
+
+    a:hover {
+      background-color: darkcyan;
+      color: black;
+    }
+
+    #home, #about, #contact {
+      margin-top: 70vh;
+    }
+
+    @media only screen and (max-width: 768px) {
+      #nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+
+      #nav.show {
+        display: flex;
+      }
+
+      #menu_icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+    
+  <div id="menu_icon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav id="nav" >
+    <a href="#home">Home</a>
+    <a href="#about">About</a>    
+    <a href="#contact">Contact</a>
+  </nav>   
+  
+  <div id="home">
+    <p>Home Section</p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi facilis totam quam inventore doloribus, tempore necessitatibus nemo architecto earum, distinctio sit magni ut ab. Ullam eaque facere suscipit nesciunt fuga.
+  </div>
+
+  <div id="about">
+    <p>About Section</p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est earum ab aspernatur sequi! Nostrum aperiam dolor sequi voluptates suscipit molestiae magni repellat ratione autem porro? Quis vel eius sequi ad?
+  </div>
+
+  <div id="contact" >
+    <p>Contact Section</p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui harum enim recusandae tempore at est nesciunt minima molestiae ab dolore, maiores inventore ad quos et expedita, explicabo quis quia! Explicabo.
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu_icon = document.getElementById('menu_icon');
+      const nav = document.getElementById('nav');
+
+      menu_icon.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+    });
+  </script>
+</body>
+</html>
