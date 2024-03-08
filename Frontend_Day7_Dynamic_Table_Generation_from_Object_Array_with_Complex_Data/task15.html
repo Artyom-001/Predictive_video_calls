@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        
+        background-color: rgb(214, 223, 138);
+      }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: rgb(14, 210, 224);
+        }
+        #employeeTableBody{
+          background-color: rgb(61, 241, 211);
+        }
+    </style>
+
+</head>
+<body>
+    
+<table id="employeeTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Role Title</th>
+            <th>Role Level</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Skills</th>
+        </tr>
+    </thead>
+    <tbody id="employeeTableBody"></tbody>
+</table>
+
+<script>
+    const employees = [
+        {
+            id: 1,
+            name: "John Doe",
+            age: 30,
+            department: "Engineering",
+            role: { title: "Frontend Developer", level: "Mid" },
+            contact: { email: "john.doe@example.com", phone: "123-456-7890" },
+            skills: ["JavaScript", "React", "CSS"]
+        },
+        {
+            id: 2,
+            name: "Jane Smith",
+            age: 28,
+            department: "Design",
+            role: { title: "UI/UX Designer", level: "Senior" },
+            contact: { email: "jane.smith@example.com", phone: "098-765-4321" },
+            skills: ["Figma", "Sketch", "Adobe XD"]
+        },
+        {
+            id: 3,
+            name: "Neo Anderson",
+            age: 37,
+            department: "Matrix",
+            role: { title: "The One", level: "Senior" },
+            contact: { email: "thomasanderson@example.com", phone: "011-110-1001" },
+            skills: ["Matrix Vision", "Telekinesis", "Flight"]
+        },
+        {
+            id: 4,
+            name: "Agent Smith",
+            age: 100,
+            department: "Matrix",
+            role: { title: "Program", level: "Senior" },
+            contact: { email: "agentsmith@example.com", phone: "100-001-0110" },
+            skills: ["Copying Himself", "Teleportation", "Strength"]
+        }
+    ];
+
+    const tableBody = document.getElementById('employeeTableBody');
+
+    function generateTable() {
+        employees.forEach(employee => {
+            const row = document.createElement("tr");
+            
+            for (const key in employee) {
+                if (typeof employee[key] === "object" && !Array.isArray(employee[key])) {
+                    for (const nestedKey in employee[key]) {
+                        const cell = document.createElement("td");
+                        cell.textContent = employee[key][nestedKey];
+                        row.appendChild(cell);
+                    }
+                } else if (key === "skills") {
+                    const cell = document.createElement("td");
+                    cell.textContent = employee[key].join(', ');
+                    row.appendChild(cell);
+                } else {
+                    const cell = document.createElement("td");
+                    cell.textContent = employee[key];
+                    row.appendChild(cell);
+                }
+            }
+            tableBody.appendChild(row);
+        });
+    }
+    
+    generateTable();
+</script>
+</body>
+</html>
